@@ -351,6 +351,7 @@ function getlocation() {
 
      (document.getElementById('currentposition') as HTMLFormElement).innerHTML = 
      '<img src="/assets/img/location.png" width="15" height="20" class="d-inline-block align-top"alt=""> ' + cc ;
+     localStorage.setItem("currentpos",cc) ;
 
     });
   } else {

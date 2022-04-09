@@ -9,6 +9,12 @@ import { MainComponent } from './main/main.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
 import { FrNewsComponent } from './fr-news/fr-news.component';
 import { FrReportComponent } from './fr-report/fr-report.component';
 import { AFrReportsComponent } from './a-fr-reports/a-fr-reports.component';
@@ -20,6 +26,7 @@ import { FrProfileComponent } from './fr-profile/fr-profile.component';
 import { FrLoginComponent } from './fr-login/fr-login.component';
 import { ArNewsComponent } from './ar-news/ar-news.component';
 import { ArReportComponent } from './ar-report/ar-report.component';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -27,6 +34,8 @@ import { ArReportComponent } from './ar-report/ar-report.component';
   declarations: [
     AppComponent,
     MainComponent,
+
+    
     
 
     
@@ -48,7 +57,10 @@ import { ArReportComponent } from './ar-report/ar-report.component';
     NgbModule,
     WebcamModule,
     HttpClientModule,
-    
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     
     
    

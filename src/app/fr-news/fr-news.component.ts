@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-fr-news',
@@ -9,28 +9,28 @@ import { HttpClient } from '@angular/common/http';
 
 export class FrNewsComponent implements OnInit {
   public isCollapsed = true;
-  constructor(private httpClient: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.testcrud() ;
-    
+    this.getInfo()
+
   }
 
-  testcrud(): void {
-    const data = {
-      name: "x",
-    };
-
-    alert("es") ;
-    this.httpClient.post("https://greencity-64460.web.app/waste/save",data)
-      .subscribe(
-        response => {
-          console.log(response);
-        },
-        error => {
-          console.log(error);
-        });
+getInfo() {
+  const httpOptions = {
+    headers: new HttpHeaders()
   }
+  httpOptions.headers.append('Access-Control-Allow-Origin', '*');
+  httpOptions.headers.append('Content-Type', 'application/json');
+  httpOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+
+  var loc = localStorage.getItem("currentpos") ;
+    this.http.get("https://greencity-tn-default-rtdb.europe-west1.firebasedatabase.app/problems/"+loc+"/.json",httpOptions).subscribe(responseData => {
+      console.log(responseData);
+    });
+}
+
+
   
 
 }

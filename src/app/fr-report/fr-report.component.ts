@@ -1,9 +1,13 @@
 import { Component, OnInit , AfterViewInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { WebcamImage } from 'ngx-webcam';
 import html2canvas from 'html2canvas';
 import * as L from 'leaflet';
 import { copyCSSStyles } from 'html2canvas/dist/types/dom/document-cloner';
 import { getLocaleDirection } from '@angular/common';
+import { CrudService } from '../shared/crud.service';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-fr-report',
@@ -24,7 +28,7 @@ export class FrReportComponent implements AfterViewInit {
 
   
 
-  constructor() { }
+  constructor( private router: Router, private http: HttpClient) { }
 
   ngAfterViewInit(): void {
 
@@ -627,6 +631,39 @@ export class FrReportComponent implements AfterViewInit {
    
      
   }
+
+send() {
+
+  var loc =  localStorage.getItem("currentpos") ;
+
+  let elements = document.getElementsByName("dtype");
+  // @ts-ignore
+  var typ =  elements[0].value;
+
+
+  const object =  {
+    title: (document.getElementById("texttitle") as HTMLFormElement)['value'] ,
+    subject: (document.getElementById("textsub") as HTMLFormElement)['value'] ,
+    description: (document.getElementById("textdesc") as HTMLFormElement)['value'],
+    location: loc,
+    type: typ,
+    name: (document.getElementById("name") as HTMLFormElement)['value'] ,
+    phone: (document.getElementById("phone") as HTMLFormElement)['value'] 
+}
+
+const httpOptions = {
+  headers: new HttpHeaders()
+}
+httpOptions.headers.append('Access-Control-Allow-Origin', '*');
+httpOptions.headers.append('Content-Type', 'application/json');
+httpOptions.headers.append('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+  this.http.post("https://greencity-tn-default-rtdb.europe-west1.firebasedatabase.app/problems/"+loc+"/"+typ+".json",object,httpOptions).subscribe(responseData => {
+    console.log(responseData);
+  });
+  this.router.navigate(['/fr-news']);
+
+
+}
 
 }
 
