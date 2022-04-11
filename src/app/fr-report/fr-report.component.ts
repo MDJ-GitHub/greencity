@@ -35,6 +35,11 @@ export class FrReportComponent implements AfterViewInit {
     
     localStorage.setItem("step", "1");
     localStorage.setItem("capture", "1");
+    localStorage.setItem("picc1","assets/img/empty.jpg");
+    localStorage.setItem("picc2","assets/img/empty.jpg");
+    localStorage.setItem("picc3","assets/img/empty.jpg");
+    localStorage.setItem("picc4","assets/img/empty.jpg");
+    localStorage.setItem("picc5","assets/img/empty.jpg");
 
   }
 
@@ -160,7 +165,8 @@ export class FrReportComponent implements AfterViewInit {
  
           canvas.style.width = "207px";
           canvas.style.height ="210px";
-
+          var x = canvas.toDataURL();
+          localStorage.setItem("picc1",x) ;
 
           (document.getElementById('pic1') as HTMLFormElement).appendChild(canvas);
         })
@@ -179,6 +185,8 @@ export class FrReportComponent implements AfterViewInit {
         function (canvas: any) {
           canvas.style.width = "207px";
           canvas.style.height ="210px";
+          var x = canvas.toDataURL();
+          localStorage.setItem("picc2",x) ;
           (document.getElementById('pic2') as HTMLFormElement).appendChild(canvas);
         })
       localStorage.setItem("capture", "3");
@@ -192,6 +200,8 @@ export class FrReportComponent implements AfterViewInit {
         function (canvas: any) {
           canvas.style.width = "207px";
           canvas.style.height ="210px";
+          var x = canvas.toDataURL();
+          localStorage.setItem("picc3",x) ;
           (document.getElementById('pic3') as HTMLFormElement).appendChild(canvas);
         })
       localStorage.setItem("capture", "4");
@@ -206,6 +216,8 @@ export class FrReportComponent implements AfterViewInit {
         function (canvas: any) {
           canvas.style.width = "207px";
           canvas.style.height ="210px";
+          var x = canvas.toDataURL();
+          localStorage.setItem("picc4",x) ;
           (document.getElementById('pic4') as HTMLFormElement).appendChild(canvas);
         })
       localStorage.setItem("capture", "5");
@@ -220,6 +232,8 @@ export class FrReportComponent implements AfterViewInit {
         function (canvas: any) {
           canvas.style.width = "207px";
           canvas.style.height ="210px";
+          var x = canvas.toDataURL();
+          localStorage.setItem("picc5",x) ;
           (document.getElementById('pic5') as HTMLFormElement).appendChild(canvas);
 
         })
@@ -239,45 +253,154 @@ export class FrReportComponent implements AfterViewInit {
 
   picupload() {
 
-    let input = document.createElement('input');
-    input.type = 'file';
-    input.onchange = _ => {
-              let files =   Array.from(input.files as unknown as HTMLFormElement);
-              var loadFile = function(_event: any) {
-                var reader = new FileReader();
-                reader.onload = function(){
-                 let x =  document.createElement('img')
-                 x.id = "p1" ;
-                 x.style.width = "207px";
-                 x.style.height ="210px";
-                 (document.getElementById('pic1') as HTMLFormElement).appendChild(x);
-                  var output = document.getElementById('p1');
 
-                  (output as HTMLFormElement)['src'] = reader.result;
-                };
-                reader.readAsDataURL(_event.target.files[0]);
-              };
-              loadFile(event) ;
-          };
-    input.click();
-    localStorage.setItem("capture", "2");
+    if (localStorage.getItem("capture") == "5") {
+      let input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = _ => {
+                let files =   Array.from(input.files as unknown as HTMLFormElement);
+                var loadFile = function(_event: any) {
+                  var reader = new FileReader();
+                  reader.onload = function(){
+                   let x =  document.createElement('img')
+                   x.id = "p5" ;
+                   x.style.width = "207px";
+                   x.style.height ="210px";
+                   
+                   (document.getElementById('pic5') as HTMLFormElement).appendChild(x);
+                    var output = document.getElementById('p5');
   
-
-
-    if (localStorage.getItem("capture") == "1") {
-     
-    }
-
-    if (localStorage.getItem("capture") == "2") {
-    }
-
-    if (localStorage.getItem("capture") == "3") {
+                    (output as HTMLFormElement)['src'] = reader.result;
+                                        // @ts-ignore
+                                        localStorage.setItem("picc5", reader.result) ;
+                  };
+                  reader.readAsDataURL(_event.target.files[0]);
+                };
+                loadFile(event) ;
+            };
+      input.click();
     }
 
     if (localStorage.getItem("capture") == "4") {
+      let input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = _ => {
+                let files =   Array.from(input.files as unknown as HTMLFormElement);
+                var loadFile = function(_event: any) {
+                  var reader = new FileReader();
+                  reader.onload = function(){
+                   let x =  document.createElement('img')
+                   x.id = "p4" ;
+                   x.style.width = "207px";
+                   x.style.height ="210px";
+                   (document.getElementById('pic4') as HTMLFormElement).appendChild(x);
+                    var output = document.getElementById('p4');
+  
+                    (output as HTMLFormElement)['src'] = reader.result;
+                                        // @ts-ignore
+                                        localStorage.setItem("picc4", reader.result) ;
+                  };
+                  reader.readAsDataURL(_event.target.files[0]);
+                };
+                loadFile(event) ;
+            };
+      input.click();
+      localStorage.setItem("capture", "5");
     }
 
-    if (localStorage.getItem("capture") == "5") {
+
+
+
+
+    if (localStorage.getItem("capture") == "3") {
+      let input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = _ => {
+                let files =   Array.from(input.files as unknown as HTMLFormElement);
+                var loadFile = function(_event: any) {
+                  var reader = new FileReader();
+                  reader.onload = function(){
+                   let x =  document.createElement('img')
+                   x.id = "p3" ;
+                   x.style.width = "207px";
+                   x.style.height ="210px";
+                   (document.getElementById('pic3') as HTMLFormElement).appendChild(x);
+                    var output = document.getElementById('p3');
+  
+                    (output as HTMLFormElement)['src'] = reader.result;
+                                        // @ts-ignore
+                                        localStorage.setItem("picc3", reader.result) ;
+                  };
+                  reader.readAsDataURL(_event.target.files[0]);
+                };
+                loadFile(event) ;
+            };
+      input.click();
+      localStorage.setItem("capture", "4");
+    }
+
+
+    if (localStorage.getItem("capture") == "2") {
+
+      let input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = _ => {
+                let files =   Array.from(input.files as unknown as HTMLFormElement);
+                var loadFile = function(_event: any) {
+                  var reader = new FileReader();
+                  reader.onload = function(){
+                   let x =  document.createElement('img')
+                   x.id = "p2" ;
+                   x.style.width = "207px";
+                   x.style.height ="210px";
+                   (document.getElementById('pic2') as HTMLFormElement).appendChild(x);
+                    var output = document.getElementById('p2');
+  
+                    (output as HTMLFormElement)['src'] = reader.result;
+                                        // @ts-ignore
+                                        localStorage.setItem("picc2", reader.result) ;
+                  };
+                  reader.readAsDataURL(_event.target.files[0]);
+                };
+                loadFile(event) ;
+            };
+      input.click();
+      localStorage.setItem("capture", "3");
+    }
+
+
+    if (localStorage.getItem("capture") == "1") {
+      let input = document.createElement('input');
+      input.type = 'file';
+      input.onchange = _ => {
+                let files =   Array.from(input.files as unknown as HTMLFormElement);
+                var loadFile = function(_event: any) {
+                  var reader = new FileReader();
+                  reader.onload = function(){
+                   let x =  document.createElement('img')
+                   x.id = "p1" ;
+                   x.style.width = "207px";
+                   x.style.height ="210px";
+                   (document.getElementById('pic1') as HTMLFormElement).appendChild(x);
+                    var output = document.getElementById('p1');
+  
+                    (output as HTMLFormElement)['src'] = reader.result;
+                    // @ts-ignore
+                    localStorage.setItem("picc1", reader.result) ;
+                  };
+                  reader.readAsDataURL(_event.target.files[0]);
+                                      
+               
+                   
+                  
+
+                };
+                loadFile(event) ;
+
+            };
+      input.click();
+      localStorage.setItem("capture", "2");
+     
     }
 
 
@@ -640,6 +763,19 @@ send() {
   // @ts-ignore
   var typ =  elements[0].value;
 
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+  var h = String(today.getHours()).padStart(2, '0');
+  var m = String(today.getMinutes()).padStart(2, '0');
+  var s = String(today.getSeconds()).padStart(2, '0');
+  var time = h + ":" + m + ":" + s +  "  " + mm + '/' + dd + '/' + yyyy ; 
+
+
+
+
+
 
   const object =  {
     title: (document.getElementById("texttitle") as HTMLFormElement)['value'] ,
@@ -648,7 +784,13 @@ send() {
     location: loc,
     type: typ,
     name: (document.getElementById("name") as HTMLFormElement)['value'] ,
-    phone: (document.getElementById("phone") as HTMLFormElement)['value'] 
+    phone: (document.getElementById("phone") as HTMLFormElement)['value'],
+    date: time,
+    picture1 : localStorage.getItem("picc1"),
+    picture2 : localStorage.getItem("picc2"),
+    picture3 : localStorage.getItem("picc3"),
+    picture4 : localStorage.getItem("picc4"),
+    picture5 : localStorage.getItem("picc5"),
 }
 
 const httpOptions = {

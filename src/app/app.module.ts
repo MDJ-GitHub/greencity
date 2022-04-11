@@ -27,7 +27,7 @@ import { FrLoginComponent } from './fr-login/fr-login.component';
 import { ArNewsComponent } from './ar-news/ar-news.component';
 import { ArReportComponent } from './ar-report/ar-report.component';
 import { environment } from 'src/environments/environment';
-
+import { FrNewsAllComponent } from './fr-news-all/fr-news-all.component';
 
 
 @NgModule({
@@ -49,7 +49,8 @@ import { environment } from 'src/environments/environment';
     FrProfileComponent,
     FrLoginComponent,
     ArNewsComponent,
-    ArReportComponent
+    ArReportComponent,
+    FrNewsAllComponent
   ],
   imports: [
     BrowserModule,
@@ -60,8 +61,8 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    
+    AngularFireDatabaseModule
+   
     
    
   ],

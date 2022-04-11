@@ -5,6 +5,7 @@ import { GoogleMapsModule } from '@angular/google-maps'
 
 import { MainComponent } from './main/main.component';
 import { FrNewsComponent } from './fr-news/fr-news.component';
+import { FrNewsAllComponent } from './fr-news-all/fr-news-all.component';
 import { FrReportComponent } from './fr-report/fr-report.component';
 import { FrEventsComponent } from './fr-events/fr-events.component';
 import { AFrReportsComponent } from './a-fr-reports/a-fr-reports.component';
@@ -18,6 +19,7 @@ import { ArReportComponent } from './ar-report/ar-report.component';
 const routes: Routes = [
   { path: 'main', component: MainComponent },
   { path: 'fr-news', component: FrNewsComponent },
+  { path: 'fr-news-all', component: FrNewsAllComponent },
   { path: 'fr-report', component: FrReportComponent },
   { path: 'fr-events', component: FrEventsComponent },
   { path: 'a-fr-reports', component: AFrReportsComponent },
