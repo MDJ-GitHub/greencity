@@ -1,0 +1,74 @@
+<nav class="navbar fixed-top navbar-dark bg-success justify-content-between py-0">
+
+  <div>
+    &nbsp;
+    <img src="/assets/img/logo.png" width="60" height="40" class="" alt="">
+
+  </div>
+
+  <div>
+    <h5 id="step" class="text-center"> Signaler</h5>
+    <h6 id="currentposition" class="text-center"> <img src="/assets/img/location.png" width="15" height="20"
+        class="d-inline-block align-top" alt="">position actuel</h6>
+  </div>
+
+  <div class="text-center">
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+      <button class="btn btn-outline-secondary me-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">
+        <img src="/assets/img/fr.png" width="30" height="25" class="rounded ms-auto" alt="">
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual">
+        <button ngbDropdownItem><img src="/assets/img/fr.png" width="30" height="25" class="rounded ms-auto" alt="">
+          Français</button>
+        <button ngbDropdownItem><img src="/assets/img/tn.png" width="30" height="25" class="rounded ms-auto" alt="">
+          عربي</button>
+        <button ngbDropdownItem><img src="/assets/img/en.png" width="30" height="25" class="rounded ms-auto" alt="">
+          English</button>
+      </div>
+    </div>
+
+    <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
+      <button class="btn btn-outline-secondary me-2" id="dropdownManual2" ngbDropdownAnchor (focus)="myDrop.open()">
+        <img src="/assets/img/settings.png" width="30" height="25" alt="">
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownManual2">
+        <button ngbDropdownItem><img src="/assets/img/fr.png" width="30" height="25" class="rounded ms-auto" alt="">
+          Français</button>
+        <button ngbDropdownItem><img src="/assets/img/tn.png" width="30" height="25" class="rounded ms-auto" alt="">
+          عربي</button>
+        <button ngbDropdownItem><img src="/assets/img/en.png" width="30" height="25" class="rounded ms-auto" alt="">
+          English</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<body>
+    <br><br><br><br><br>
+  <div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Ajouter un Administrateur</h3>
+        <form>
+          <div class="formGroup">
+            <input type="email" class="formControl" placeholder="Email" #userEmail required />
+          </div>
+          <div class="formGroup">
+            <input type="password" class="formControl" placeholder="Password" #userPwd required />
+          </div>
+          <div class="formGroup">
+            <input type="button" class="btn btnPrimary" value="Ajouter"
+              (click)="authService.SignUp(userEmail.value, userPwd.value)" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<nav class="navbar fixed-bottom navbar-light bg-dark">
+  <img routerLink="/fr-profile" src="/assets/img/fr-profile.png" width="38" height="50" class="center" alt="">
+  <img routerLink="/fr-news" src="/assets/img/fr-news.png" width="38" height="50" class="center" alt="">
+  <img routerLink="/fr-report" src="/assets/img/fr-detect.png" width="38" height="50" class="center" alt="">
+  <img routerLink="/fr-events" src="/assets/img/fr-table.png" width="38" height="50" class="center" alt="">
+  <img routerLink="/fr-info" src="/assets/img/fr-others.png" width="38" height="50" class="center" alt="">
+</nav>
