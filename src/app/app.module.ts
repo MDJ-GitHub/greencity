@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import {WebcamModule} from 'ngx-webcam';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-
+import {  ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
@@ -28,12 +28,12 @@ import { ArNewsComponent } from './ar-news/ar-news.component';
 import { ArReportComponent } from './ar-report/ar-report.component';
 import { environment } from 'src/environments/environment';
 import { FrNewsAllComponent } from './fr-news-all/fr-news-all.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FrAddAdminsComponent } from './fr-add-admins/fr-add-admins.component';
 import { FrForgotPasswordComponent } from './fr-forgot-password/fr-forgot-password.component';
 import { FrVerifyEmailComponent } from './fr-verify-email/fr-verify-email.component';
 import { AuthService } from './shared/services/auth';
 import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -56,11 +56,12 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
     ArNewsComponent,
     ArReportComponent,
     FrNewsAllComponent,
-    DashboardComponent,
     FrAddAdminsComponent,
     FrForgotPasswordComponent,
     FrVerifyEmailComponent,
     DashboardAdminComponent
+    
+    
   ],
   imports: [
     BrowserModule,
@@ -71,8 +72,10 @@ import { DashboardAdminComponent } from './dashboard-admin/dashboard-admin.compo
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    ReactiveFormsModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    FormsModule,
    
     
    

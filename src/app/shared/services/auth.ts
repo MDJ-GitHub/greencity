@@ -37,7 +37,7 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['a-fr-info']);
         });
         if (email=="aymmas1@gmail.com" && password=="aymengreen2"){
             this.ngZone.run(() => {

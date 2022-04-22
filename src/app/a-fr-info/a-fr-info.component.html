@@ -100,11 +100,28 @@
     <a  class="active" routerLink="/a-fr-info"><img src="/assets/img/linfo.png" width="30" height="30" style="filter:invert(1); float: left;" alt="">&nbsp;
       Problems</a>
       <a  routerLink="/a-fr-events"><img src="/assets/img/calendar-fill.png" width="30" height="30" style="filter:invert(1); float: left;" alt="">&nbsp; Événements</a>
+      <a class="active" (click)="authService.SignOut()" >&nbsp;Déconnecter</a>
+            
   </div>
+
   <div class="content">
     <br><br>
   
-  
+    <div class="row" *ngIf="authService.userData as user">
+      <div class="col-md-12">
+        <div class="media">
+          <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+            src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+          <div class="media-body">
+            <h1>Bonjour: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
+            <p>Admin ID: <strong>{{user.uid}}</strong></p>
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <p>Email Verifiée: <strong>{{user.emailVerified}}</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="card text-white bg-secondary mb-3">
       <div class="card-body">
         <h5 class="card-title">
